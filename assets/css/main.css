@@ -47,3 +47,218 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+/* Base Elements */
+html {
+    font-size: 16px;
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* Layout */
+.wrapper {
+    padding: 12px 77px;
+}
+
+
+/* Masthead */
+.masthead {
+    padding: 2px 0;
+    position: fixed;
+    background-color: #FFF;
+    width: 100%;
+    z-index: 1;
+}
+
+.masthead-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.masthead-bd {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    width: 30px;
+    margin-right: 34px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+/* Headings */
+.hdg {
+    font-family: 'Ovo', serif;
+    color: #fff;
+    font-weight: 300;
+}
+
+.hdg_1 {
+    line-height: 64px;
+    font-size: 5rem;
+    position: relative;
+    padding-bottom: 26px;
+}
+
+.hdg_3 {
+    color: #f28500;
+    font-size: 3rem;
+    line-height: 46px;
+    font-weight: 300;
+    margin: 0 0 40px;
+}
+
+.hdg_4 {
+    font-size: 2.25rem;
+    line-height: 46px;
+}
+
+/* Navigation */
+.navigation {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.navigation ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.navigation li {
+    padding: 0 20px;
+}
+
+.navigation li a {
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #f28500;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.navigation li a:hover {
+    box-shadow: inset 0 -1px 0 0 #f28500;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 0.8rem;
+    padding: 12px 24px;
+    border: 1px solid #4a148c;
+    color: #4a148c;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    color: #ffffff;
+    background-color: #f28500;
+}
+/*Icons*/
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: #fff;
+  fill: #fff;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    max-height: 960px;
+    min-height: 500px;
+}
+
+.hero_main{
+    background-color: #f28500;
+}
+
+.hero_alt {
+    background-image: url(../img/asanoha-400px.png);
+}
+
+.hero_demi {
+    height: 50vh;
+    max-height: 480px;
+    min-height: 250px;
+    background-color: #f28500;
+}
+
+.hero-content {
+    padding: 200px 0 0;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.hero-content_main {
+    width: 50%;
+
+}
+
+.hero-content_alt {
+    width: 70%;
+}
+
+.hero-hd {
+    margin: 0px 0px 36px 0px;
+    text-align: center;
+}
+
+.hero-bd{
+    font-family: 'Quattrocento Sans', sans-serif;
+    line-height: 26px;
+    padding-bottom: 200px;
+}
+
+.hero-container {
+    display: flex;
+}
+
+.description {
+    color: #f28500;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/*Columns*/
+.col-one-third {
+    flex-grow: 1;
+}
+
+.col-two-third {
+    flex-grow: 2;
+    width: 60%;
+    margin-right: 0px;
+}
+/* Media Breakpoints */
+@media (min-width: 1172px) {
+  .wrapper {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1152px;
+  }
+
+  .hero-content {
+    width: 60%;
+    min-width: 544px;
+  }
+}
+
+@media (min-width: 1280px){
+    .hdg_3{
+        font-size: 28px;
+        line-height: 42px;
+    }
+}
