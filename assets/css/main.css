@@ -217,7 +217,7 @@ html {
 }
 
 .hero-bd_alt{
-    
+
 }
 
 .hero-container {
@@ -257,6 +257,7 @@ html {
     background-color: #fff;
     width: 60%;
     height: 30px;
+    border-color: #000;
 }
 
 .tool-container {
@@ -282,5 +283,5 @@ html {
 }
 
 @media (min-width: 1280px){
-    
+
 }
