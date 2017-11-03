@@ -107,7 +107,6 @@ html {
     font-size: 3rem;
     line-height: 46px;
     font-weight: 300;
-    margin: 0 0 40px;
 }
 
 .hdg_4 {
@@ -150,9 +149,10 @@ html {
     font-family: 'Quattrocento Sans', sans-serif;
     font-size: 0.8rem;
     padding: 12px 24px;
-    border: 1px solid #4a148c;
-    color: #4a148c;
-    text-transform: uppercase;
+    border: 1px solid #f28500;
+    color: #f28500;
+    background-color: #fff;
+    /*text-transform: uppercase;*/
     text-decoration: none;
     letter-spacing: 0.05em;
     -webkit-transition: all 0.2s ease-out;
@@ -163,15 +163,6 @@ html {
 .btn:hover {
     color: #ffffff;
     background-color: #f28500;
-}
-/*Icons*/
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  stroke-width: 0;
-  stroke: #fff;
-  fill: #fff;
 }
 
 /* Hero */
@@ -198,28 +189,35 @@ html {
 
 .hero-content {
     padding: 200px 0 0;
-    margin: auto;
     box-sizing: border-box;
+    margin: auto;
 }
 
 .hero-content_main {
     width: 50%;
-
 }
 
 .hero-content_alt {
     width: 70%;
+    padding: 100px 0 0;
 }
 
 .hero-hd {
-    margin: 0px 0px 36px 0px;
     text-align: center;
 }
 
 .hero-bd{
+    margin: 36px 0px 0px 0px;
     font-family: 'Quattrocento Sans', sans-serif;
     line-height: 26px;
-    padding-bottom: 200px;
+}
+
+.hero-hd_alt {
+    text-align: left;
+}
+
+.hero-bd_alt{
+    
 }
 
 .hero-container {
@@ -228,13 +226,23 @@ html {
 
 .description {
     color: #f28500;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
+    padding-left: 50px;
+    font-style: italic;
+}
+
+/*Footer*/
+.footer {
+    background-color: #fff;
+    height: 5vh;
 }
 
 /*Columns*/
 .col-one-third {
     flex-grow: 1;
+    width: 100px;
+    height: 100px;
 }
 
 .col-two-third {
@@ -242,6 +250,23 @@ html {
     width: 60%;
     margin-right: 0px;
 }
+
+/*Tool*/
+.textfield {
+    margin: 50px auto auto;
+    background-color: #fff;
+    width: 60%;
+    height: 30px;
+}
+
+.tool-container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 450px;
+    padding: 50px 0 0 0;
+}
+
 /* Media Breakpoints */
 @media (min-width: 1172px) {
   .wrapper {
@@ -257,8 +282,5 @@ html {
 }
 
 @media (min-width: 1280px){
-    .hdg_3{
-        font-size: 28px;
-        line-height: 42px;
-    }
+    
 }
