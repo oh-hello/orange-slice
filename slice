@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+
+var request = require('request');
+var html_strip = require('htmlstrip-native').html_strip;
+
+// Get a list of all words from the specimen (string)
+function get_word_list(specimen) {
+    return specimen
+        .replace(/[.,?!;()"'-]/g, " ")
+        .replace(/\s+/g, " ")
+        .toLowerCase()
+        .split(" ");
+}
+
+// Get a dictionary of unique words and the number of
+// occurrences from a word list (array)
+function get_word_dictionary(wordlist) {
+    var worddict = {};
+    wordlist.forEach(function (word) {
+        if (!(worddict.hasOwnProperty(word))) {
+            worddict[word] = 0;
+        }
+        worddict[word]++;
+    });
+
+    return worddict;
+}
+
+// These are example words we want to target
+danger_words = ['links', 'foobar', 'chairs', 'Dinner'];
+
+// The main logic to determine how 'unsafe' a page is
+function process_specimen(specimen_body) {
+    // options for stripping
+    const stripOptions = {
+        include_script: false,
+        include_style: false,
+        compact_whitespace: true,
+        include_attributes: { 'alt': true }
+    };
+
+    // Strip HTML
+    body = html_strip(specimen_body, stripOptions).toLowerCase();
+
+    // Get the list of words on the page, with counts of
+    // occurences
+    wordlist = get_word_list(body);
+    worddict = get_word_dictionary(wordlist);
+    
+    // Track a list of the danger words that were found in the
+    // content, and how many times.
+    found_danger_words = [];
+    for (i in danger_words) {
+        danger_word = danger_words[i].toLowerCase();
+
+        if (worddict.hasOwnProperty(danger_word)) {
+            found_danger_words[danger_word] = worddict[danger_word];
+        }
+    }
+
+    // This will display the list of words on the page and
+    // their counts
+    //console.log(JSON.stringify(worddict));
+
+    console.log("Total words on page: ", wordlist.length);
+    console.log("Total unique words on page: ", Object.keys(worddict).length);
+    console.log("Danger words found: ", found_danger_words);
+}
+
+// Process a URL and get the orange slice score
+function process_url(url) {
+    console.log("Fetching URL '" + url + "'");
+    request(url, function(error, response, body) {
+        //console.log('error:', error);
+        //console.log('statusCode:', response && response.statusCode);
+        return process_specimen(body);
+    });
+}
+
+process_url('https://en.wikipedia.org/wiki/Chair');
