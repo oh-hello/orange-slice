@@ -1,0 +1,13 @@
+{
+  "name": "orange-slice",
+  "version": "1.0.0",
+  "description": "",
+  "bin" : "./slice.js",
+  "dependencies": {
+    "request": "^2.83.0",
+    "htmlstrip-native": "^0.1.3"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "MIT"
+}
