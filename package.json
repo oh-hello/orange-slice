@@ -12,6 +12,9 @@
     "server": "^1.0.4"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "8.4.0"
+  },
   "author": "",
   "license": "MIT"
 }
