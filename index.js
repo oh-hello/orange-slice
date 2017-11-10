@@ -4,7 +4,9 @@ const { get, post } = server.router;
 //const { render, redirect } = server.reply;
 const ctrl = require('./src/controller/slice');
 
-server({ port: 3000 }, [
+var port = process.env.PORT || 3000;
+
+server({ port: port }, [
   get('/', ctrl.home),
   get('/report', ctrl.report)
 ]);
