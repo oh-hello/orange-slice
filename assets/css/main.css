@@ -55,7 +55,7 @@ html {
 
 /* Layout */
 .wrapper {
-    padding: 12px 77px;
+    padding: 0 45px;
 }
 
 
@@ -195,12 +195,17 @@ html {
 }
 
 .hero-content_main {
-    width: 50%;
+    width: 60%;
 }
 
 .hero-content_alt {
     width: 70%;
     padding: 20vh 0 0;
+}
+
+.hero-content_demi {
+    width: 70%;
+    padding: 10vh 0 0;
 }
 
 .hero-hd {
@@ -229,8 +234,7 @@ html {
     color: #f28500;
     font-size: 20px;
     font-weight: 300;
-    margin-top: 20px;
-    padding-left: 50px;
+    margin: 20px auto 0 auto;
     font-style: italic;
 }
 
@@ -302,9 +306,43 @@ html {
 }
 
 /* Media Breakpoints */
+@media (max-width: 425px) {
+    .hero-content_alt {
+        padding: 9vh 0 0;
+    }
+
+    .hero-content_demi {
+        width: 100%;
+    }
+
+    .hero-bd {
+        margin: 15px 0 0 0;
+        font-size: .9rem;
+        line-height: 22px;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .col-two-third{
+        padding-left: 35px;
+    }
+
+    .tool-container {
+        font-size: .8rem;
+    }
+
+    .hdg_1 {
+        font-size: 4rem;
+    }
+
+    .hdg_3 {
+        font-size: 2.5rem;
+    }
+}
 @media (min-width: 1172px) {
   .wrapper {
-    padding: 0;
     margin: 0 auto;
     max-width: 1152px;
   }
@@ -316,5 +354,7 @@ html {
 }
 
 @media (min-width: 1280px){
-
+    .wrapper {
+        min-width: 1260px;
+    }
 }
