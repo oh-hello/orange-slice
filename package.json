@@ -2,12 +2,19 @@
   "name": "orange-slice",
   "version": "1.0.0",
   "description": "",
-  "bin" : "./slice.js",
+  "bin": "./slice.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
+    "htmlstrip-native": "^0.1.3",
     "request": "^2.83.0",
-    "htmlstrip-native": "^0.1.3"
+    "server": "^1.0.4"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "8.4.0"
+  },
   "author": "",
   "license": "MIT"
 }

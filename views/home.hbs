@@ -1,0 +1,108 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Orange Slice</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Ovo|Quattrocento+Sans" rel="stylesheet">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <div class="page">
+            <div class="masthead">
+                <div class="wrapper">
+                    <div class="masthead-container">
+                        <div class="masthead-bd">
+                            <div class="logo">
+                                <img src="/assets/img/orange-slice.png" />
+                            </div>
+                            <div class="navigation">
+                                <ul>
+                                    <li><a href="#welcome">Welcome</a></li>
+                                    <li><a href="#scan">Scan</a></li>
+                                    <li><a href="#about">About</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero hero_main" id="welcome">
+                <div class="wrapper">
+                    <div class="hero-content hero-content_main">
+                        <div class="hero-hd">
+                            <h1 class="hdg hdg_1">Orange Slice</h1>
+                        </div>
+                        <div class="hero-bd">
+                        <p>It can be difficult to know just what kind of content you will see online.
+                            Luckily, Orange Slice has your back. Input the url of the site you wish
+                            to visit and Orange Slice will scan the page for sensitive content such
+                            as profanity and slurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero hero_alt" id="scan">
+                <div class="wrapper">
+                    <div class="hero-content hero-content_alt">
+                        <div class="hero-hd">
+                            <h3 class="hdg hdg_3">Search the Web on Your Terms</h3>
+                        </div>
+                        <div class="hero-bd description">
+                            <p>Simply enter a URL and select your filters</p>
+                        </div>
+                        <div class="tool">
+                            <form action="/report" method="get">
+                                <div class="textfield-container">
+                                    <input class="textfield" type="text" name="url" placeholder="Enter URL" required />
+                                </div>
+                                <div class="explain">What do you want to scan for?</div>
+                                <div class="tool-container">
+                                    <label><input type="checkbox" name="options[]" value="profanity" /> Profanity</label>
+                                    <label><input type="checkbox" name="options[]" value="insults" /> Insults/Slurs</label>
+                                    <label><input type="checkbox" name="options[]" value="toxicity" /> Toxicity</label>
+                                </div>
+                                <div class="btn">
+                                  <input type="submit" value="Scan Now" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero hero_demi" id="about">
+                <div class="wrapper">
+                    <div class="hero-content hero-content_demi">
+                        <div class="hero-container">
+                            <div class="col-one-third">
+                                <div class="hero-hd hero-hd_alt">
+                                    <h4 class="hdg hdg_4">About</h4>
+                                </div>
+                            </div>
+                            <div class="col-two-third">
+                                <div class="hero-bd hero-bd_alt">
+                                    <p>Orange Slice is a student project
+                                        designed to help people search the web safely.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+
+    </body>
+</html>
