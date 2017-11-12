@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
-        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/report.css">
         <link href="https://fonts.googleapis.com/css?family=Ovo|Quattrocento+Sans" rel="stylesheet">
     </head>
     <body>
@@ -36,21 +36,53 @@
                 </div>
             </div>
 
-            <div class="report" style="padding-top:200px;">
-              REPORT: {{ report }}<br />
-              GRADE: {{ report.grade }}<br />
-              TOTAL WORDS ON PAGE: {{ report.total_words }}<br />
-              TOTAL UNIQUE WORDS ON PAGE: {{ report.unique_words }}<br />
-              DANGER WORDS FOUND COUNT: {{ report.danger_words_found_count }}<br />
-              URL: {{ url }}<br />
-              OPTIONS: {{ options }}
+            <div class="hero hero_main">
+                <div class="wrapper">
+                    <div class="report-container">
+                        <div class="report">
+                            <div class="hero-hd">
+                                <h3 class="hdg hdg_2">Your Report</h3>
+                            </div>
+                            <div class="grade">
+                                <h5 class="hdg hdg_5">Page Grade</h5>
+                                <h3 class="hdg hdg_3">{{ report.grade }}</h3>
+                                <p>{{ report.grade_message }}</p>
+                            </div>
+                            <div class="description-container">
+                                <h5 class="hdg hdg_5">What does this grade mean?</h5>
+                                <div class="grade-description">
+                                    <div class="summary summary_total">
+                                        <p>Out of <span class="number">{{report.total_words}}</span> total words on the web page you requested...<p>
+                                    </div>
+                                    <div class="summary summary_danger">
+                                        <p>Orange Slice found a total of <span class="number">{{report.total_danger_words}}</span> words matching the filters you specified.<p>
+                                    </div>
+                                </div>
+                                <div class="btn-container">
+                                    <a class="btn" href="{{url}}" target="_blank">Click to visit webpage</a>
+                                </div>
+                            </div>
+
+                            <!--REPORT: {{ report }}<br />
+                            GRADE: {{ report.grade }}<br />
+                            GRADE MESSAGE: {{ report.grade_message }}<br />
+                            TOTAL WORDS ON PAGE: {{ report.total_words }}<br />
+                            TOTAL UNIQUE WORDS ON PAGE: {{ report.unique_words }}<br />
+                            DANGER WORDS FOUND COUNT: {{ report.danger_words_found_count }}<br />
+                            TOTAL DANGER WORDS FOUND: {{ report.total_danger_words }}<br />
+                            URL: {{ url }}<br />
+                            OPTIONS: {{ options }}-->
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="footer">
-              footer
+                <div class="wrapper">
+                    footer
+                </div>
             </div>
         </div>
 
     </body>
 </html>
-

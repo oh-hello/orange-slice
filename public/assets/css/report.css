@@ -102,16 +102,29 @@ html {
     padding-bottom: 26px;
 }
 
-.hdg_3 {
+.hdg_2 {
+    font-size: 3.5rem;
     color: #f28500;
+}
+
+.hdg_3 {
+    color: #000;
+    font-family: "Quattrocento Sans", sans-serif;
     font-size: 3rem;
-    line-height: 46px;
-    font-weight: 300;
+    font-weight: bold;
+    line-height: 65px;
+    padding: 1vh 0;
 }
 
 .hdg_4 {
     font-size: 2.25rem;
     line-height: 46px;
+}
+
+.hdg_5 {
+    color: #f28500;
+    font-size: 1.75rem;
+    line-height: 30px;
 }
 
 /* Navigation */
@@ -146,20 +159,19 @@ html {
 
 /* Buttons */
 .btn {
-    background-color: #fff;
+    font-family: 'Quattrocento Sans', sans-serif;
+    padding: 12px 24px;
     border: 1px solid #f28500;
     border-radius: .25rem;
     color: #f28500;
-    font-family: 'Quattrocento Sans', sans-serif;
-    font-size: 1rem;
-    padding: 12px 24px;
-    text-align: center;
+    background-color: #fff;
     text-decoration: none;
-    transition: all 0.2s ease-out;
-    text-align: center;
-    white-space: nowrap;
     -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    white-space: nowrap;
+    text-align: center;
     width: fit-content;
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -168,13 +180,13 @@ html {
 }
 
 .btn-container {
-    margin: 5vh auto;
+    margin: 8vh auto;
     width: fit-content;
 }
 
 /* Hero */
 .hero {
-    height: 100vh;
+    height: 95vh;
     max-height: 960px;
     min-height: 500px;
 }
@@ -183,138 +195,63 @@ html {
     background-color: #f28500;
 }
 
-.hero_alt {
-    background-image: url(../img/asanoha-400px.png);
-}
-
-.hero_demi {
-    height: 50vh;
-    max-height: 480px;
-    min-height: 250px;
-    background-color: #f28500;
-}
-
-.hero-content {
-    padding: 200px 0 0;
-    box-sizing: border-box;
-    margin: auto;
-}
-
-.hero-content_main {
-    width: 60%;
-}
-
-.hero-content_alt {
-    width: 70%;
-    padding: 20vh 0 0;
-}
-
-.hero-content_demi {
-    width: 70%;
-    padding: 10vh 0 0;
-}
-
 .hero-hd {
+    padding: 3vh 0;
     text-align: center;
 }
 
-.hero-bd{
-    margin: 36px 0px 0px 0px;
-    font-family: 'Quattrocento Sans', sans-serif;
-    line-height: 26px;
+/*Report*/
+.report-container {
+    padding-top: 10vh;
+    margin: auto;
 }
 
-.hero-hd_alt {
-    text-align: left;
+.report {
+    background-color: #fff;
+    border-radius: .25rem;
+    height: 80vh;
+    margin: auto;
+    max-width: 700px;
 }
 
-.hero-bd_alt{
-
-}
-
-.hero-container {
-    display: flex;
-}
-
-.description {
-    color: #f28500;
-    font-size: 20px;
-    font-weight: 300;
-    margin: 20px auto 0 auto;
-    font-style: italic;
+.grade {
+    margin: auto;
+    text-align: center;
     width: fit-content;
 }
 
+.grade p {
+    color: #f28500;
+    font-size: 1.2rem;
+}
 
+.description-container{
+    width: 80%;
+    margin: auto;
+    padding-top: 8vh;
+}
+
+.grade-description {
+    padding-top: 2vh;
+}
+
+.number {
+    color: #f28500;
+    font-weight: bold;
+}
+
+.summary {
+    font-size: 1.25rem;
+    padding-top: 1.5vh;
+    line-height: 1.75rem;
+}
 /*Footer*/
 .footer {
     background-color: #fff;
     height: 5vh;
 }
 
-/*Columns*/
-.col-one-third {
-    flex-grow: 1;
-    width: 100px;
-    height: 100px;
-}
-
-.col-two-third {
-    flex-grow: 2;
-    width: 60%;
-    margin-right: 0px;
-}
-
-/*Tool*/
-
-.tool {
-    /* width: 800px; */
-    margin: 0 auto;
-    padding-top: 5vh;
-}
-
-.textfield-container {
-    margin-top: 1rem;
-}
-
-.textfield {
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-image: none;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-
-.textfield:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-}
-
-.explain {
-    margin-bottom: 1rem;
-    padding-top: 5vh;
-    text-align: center;
-}
-
-.tool-container {
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    max-width: 450px;
-    padding-bottom: 1rem;
-}
-
-/* Media Breakpoints */
+/*Media Breakpoints*/
 @media (max-width: 425px) {
     .hero-content_alt {
         padding: 9vh 0 0;
@@ -350,6 +287,7 @@ html {
         font-size: 2.5rem;
     }
 }
+
 @media (min-width: 1172px) {
   .wrapper {
     margin: 0 auto;
