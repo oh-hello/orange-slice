@@ -4,4 +4,3 @@ module.exports = {
   profanity: profanity_list,
   insults: ['dumb', 'idiot', 'jerkface', 'discusses']
 };
-lo
