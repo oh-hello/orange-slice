@@ -2,11 +2,11 @@ var request = require('request');
 var html_strip = require('htmlstrip-native').html_strip;
 
 const grades = {
-  a: "Proceed to safe URL!",
-  b: "Use caution at this page.",
-  c: "Things are heating up. Beware.",
-  d: "Not recommended for you.",
-  e: "Do not go to this page."
+  A: "Proceed to safe URL!",
+  B: "Use caution at this page.",
+  C: "Things are heating up. Beware.",
+  D: "Not recommended for you.",
+  F: "Do not go to this page."
 };
 
 const orange_slice = {
@@ -52,15 +52,18 @@ const orange_slice = {
         // occurences
         wordlist = this.get_word_list(body);
         worddict = this.get_word_dictionary(wordlist);
-        
+
         // Track a list of the danger words that were found in the
         // content, and how many times.
         found_danger_words = [];
+        total_danger_words = 0;
+
         for (i in this.danger_words) {
             danger_word = this.danger_words[i].toLowerCase();
 
             if (worddict.hasOwnProperty(danger_word)) {
                 found_danger_words[danger_word] = worddict[danger_word];
+                total_danger_words+= found_danger_words[danger_word];
             }
         }
 
@@ -74,10 +77,12 @@ const orange_slice = {
 
         return {
           grade: 'A',
+          grade_message: grades.A,
           total_words: wordlist.length,
           unique_words: Object.keys(worddict).length,
           danger_words_found_count: Object.keys(found_danger_words).length,
-          found_danger_words: found_danger_words
+          found_danger_words: found_danger_words,
+          total_danger_words: total_danger_words
         };
     },
     // Process a URL and get the orange slice score

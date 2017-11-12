@@ -146,24 +146,30 @@ html {
 
 /* Buttons */
 .btn {
-    font-family: 'Quattrocento Sans', sans-serif;
-    padding: 12px 24px;
+    background-color: #fff;
     border: 1px solid #f28500;
     border-radius: .25rem;
     color: #f28500;
-    background-color: #fff;
-    text-decoration: none;
-    margin: 5vh auto;
-    -webkit-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
-    white-space: nowrap;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 1rem;
+    padding: 12px 24px;
     text-align: center;
-    width: 30%;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s ease-out;
+    width: fit-content;
 }
 
 .btn:hover {
     color: #ffffff;
     background-color: #f28500;
+}
+
+.btn-container {
+    margin: 5vh auto;
+    width: fit-content;
 }
 
 /* Hero */
@@ -236,6 +242,7 @@ html {
     font-weight: 300;
     margin: 20px auto 0 auto;
     font-style: italic;
+    width: fit-content;
 }
 
 
@@ -296,6 +303,7 @@ html {
 .explain {
     margin-bottom: 1rem;
     padding-top: 5vh;
+    text-align: center;
 }
 
 .tool-container {

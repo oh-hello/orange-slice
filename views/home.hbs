@@ -64,16 +64,16 @@
                         <div class="tool">
                             <form action="/report" method="get">
                                 <div class="textfield-container">
-                                    <input class="textfield" type="text" name="url" placeholder="Enter URL" required />
+                                    <input class="textfield" type="url" name="url" placeholder="Enter URL" required />
                                 </div>
                                 <div class="explain">What do you want to scan for?</div>
                                 <div class="tool-container">
                                     <label><input type="checkbox" name="options[]" value="profanity" /> Profanity</label>
                                     <label><input type="checkbox" name="options[]" value="insults" /> Insults/Slurs</label>
-                                    <label><input type="checkbox" name="options[]" value="toxicity" /> Toxicity</label>
+                                    <!--<label><input type="checkbox" name="options[]" value="toxicity" /> Toxicity</label>-->
                                 </div>
-                                <div class="btn">
-                                  <input type="submit" value="Scan Now" />
+                                <div class="btn-container">
+                                  <input type="submit" class="btn" value="Scan Now" />
                                 </div>
                             </form>
                         </div>
