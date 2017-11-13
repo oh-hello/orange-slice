@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var orange_slice = require('./src/slicer.js');
+var danger_words = require('./src/danger-words.js');
 
 // The url is the 1st argument passed into the script
 const url = process.argv[2];
@@ -11,8 +12,13 @@ if (!url) {
     process.exit();
 }
 
-// These are example words we want to target
-orange_slice.set_danger_words(['links', 'foobar', 'chairs', 'Dinner']);
+var danger_word_list = [];
+
+// Include profanity and insult lists
+danger_word_list = danger_word_list.concat(danger_words.profanity);
+danger_word_list = danger_word_list.concat(danger_words.insults);
+
+orange_slice.set_danger_words(danger_word_list);
 
 // Now run the logic on the url given
 orange_slice.process_url(url);
