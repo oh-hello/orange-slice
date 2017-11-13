@@ -3,7 +3,7 @@ var html_strip = require('htmlstrip-native').html_strip;
 
 const grades = {
   aa: "No keywords were found on this page.",
-  a: "Proceed to safe URL!",
+  a: "Safe to proceed to this page!",
   b: "Use caution at this page.",
   c: "Things are heating up. Beware.",
   d: "Not recommended for you.",
@@ -98,7 +98,7 @@ const orange_slice = {
 
         // This will display the list of words on the page and
         // their counts
-        console.log(JSON.stringify(worddict));
+        //console.log(JSON.stringify(worddict));
 
         console.log("Total words on page: ", wordlist.length);
         console.log("Total unique words on page: ", Object.keys(worddict).length);
@@ -129,7 +129,7 @@ const orange_slice = {
               //console.log('statusCode:', response && response.statusCode);
               if (error) {
                   console.log('ERROR!', error);
-                  process.exit(1);
+                  return;
               }
               resolve(self.process_specimen(body));
           });
