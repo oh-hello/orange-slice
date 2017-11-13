@@ -2,11 +2,12 @@ var request = require('request');
 var html_strip = require('htmlstrip-native').html_strip;
 
 const grades = {
-  A: "Proceed to safe URL!",
-  B: "Use caution at this page.",
-  C: "Things are heating up. Beware.",
-  D: "Not recommended for you.",
-  F: "Do not go to this page."
+  aa: "No keywords were found on this page.",
+  a: "Proceed to safe URL!",
+  b: "Use caution at this page.",
+  c: "Things are heating up. Beware.",
+  d: "Not recommended for you.",
+  f: "You should avoid this page."
 };
 
 const orange_slice = {
@@ -67,6 +68,34 @@ const orange_slice = {
             }
         }
 
+        //Determine a grade for the webpage
+        var score;
+        var score_message;
+        if (total_danger_words == 0) {
+            score = 'A+';
+            score_message = grades.aa;
+        }
+        else if (total_danger_words <= 5 ) {
+            score = 'A';
+            score_message = grades.a;
+        }
+        else if (total_danger_words <= 10) {
+            score = 'B';
+            score_message = grades.b;
+        }
+        else if (total_danger_words <= 15) {
+            score = 'C';
+            score_message = grades.c;
+        }
+        else if (total_danger_words <= 20) {
+            score = 'D';
+            score_message = grades.d;
+        }
+        else {
+            score = 'F'
+            score_message = grades.f;
+        }
+
         // This will display the list of words on the page and
         // their counts
         console.log(JSON.stringify(worddict));
@@ -76,8 +105,8 @@ const orange_slice = {
         console.log("Danger words found: ", found_danger_words);
 
         return {
-          grade: 'A',
-          grade_message: grades.A,
+          grade: score,
+          grade_message: score_message,
           total_words: wordlist.length,
           unique_words: Object.keys(worddict).length,
           danger_words_found_count: Object.keys(found_danger_words).length,

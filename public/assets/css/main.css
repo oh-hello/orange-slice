@@ -252,6 +252,12 @@ html {
     height: 5vh;
 }
 
+.footer-text{
+    padding-top: 1.5vh;
+    color: #8a8a8a;
+    text-align: center;
+}
+
 /*Columns*/
 .col-one-third {
     flex-grow: 1;

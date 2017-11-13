@@ -251,6 +251,12 @@ html {
     height: 5vh;
 }
 
+.footer-text{
+    padding-top: 1.5vh;
+    color: #8a8a8a;
+    text-align: center;
+}
+
 /*Media Breakpoints*/
 @media (max-width: 425px) {
     .hero-content_alt {
