@@ -91,7 +91,6 @@ html {
 /* Headings */
 .hdg {
     font-family: 'Ovo', serif;
-    color: #fff;
     font-weight: 300;
 }
 
@@ -100,6 +99,12 @@ html {
     font-size: 5rem;
     position: relative;
     padding-bottom: 26px;
+}
+
+.hdg_2 {
+    font-size: 3.5rem;
+    color: #f28500;
+    padding: 26px 0;
 }
 
 .hdg_3 {
@@ -112,6 +117,12 @@ html {
 .hdg_4 {
     font-size: 2.25rem;
     line-height: 46px;
+}
+
+.hdg_5 {
+    color: #f28500;
+    font-size: 1.75rem;
+    line-height: 30px;
 }
 
 /* Navigation */
@@ -168,7 +179,7 @@ html {
 }
 
 .btn-container {
-    margin: 5vh auto;
+    margin: 26px auto;
     width: fit-content;
 }
 
@@ -179,8 +190,14 @@ html {
     min-height: 500px;
 }
 
-.hero_main{
+.hero_report,
+.hero_main {
     background-color: #f28500;
+}
+
+.hero_report {
+    height: auto;
+    padding: 5rem 0;
 }
 
 .hero_alt {
@@ -216,6 +233,11 @@ html {
 
 .hero-hd {
     text-align: center;
+}
+
+.hero_main .hdg,
+.hero_demi .hdg {
+  color: #fff;
 }
 
 .hero-bd{
@@ -318,6 +340,61 @@ html {
     margin: auto;
     max-width: 450px;
     padding-bottom: 1rem;
+}
+
+/*Report*/
+.report-container {
+    margin: auto;
+}
+
+.report {
+    background-color: #fff;
+    border-radius: .25rem;
+    margin: auto;
+    max-width: 700px;
+}
+
+.report-pageurl {
+    margin: 0 10px 26px 10px;
+    font-size: 0.8rem;
+}
+
+.grade {
+    margin: auto;
+    text-align: center;
+    width: fit-content;
+}
+
+.grade p {
+    color: #f28500;
+    font-size: 1.2rem;
+}
+
+.report-grade {
+    font-size: 4rem;
+    color: #000;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.description-container{
+    margin: auto 50px;
+    padding-top: 3rem; 
+    padding-bottom: 3rem;
+}
+
+.grade-description {
+    padding-top: 26px;
+}
+
+.number {
+    color: #f28500;
+    font-weight: bold;
+}
+
+.summary {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 }
 
 /* Media Breakpoints */

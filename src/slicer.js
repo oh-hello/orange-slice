@@ -2,8 +2,8 @@ var request = require('request');
 var html_strip = require('htmlstrip-native').html_strip;
 
 const grades = {
-  aa: "No keywords were found on this page.",
-  a: "Proceed to safe URL!",
+  "a+": "No keywords were found on this page.",
+  a: "Safe to proceed to this page!",
   b: "Use caution at this page.",
   c: "Things are heating up. Beware.",
   d: "Not recommended for you.",
@@ -70,39 +70,36 @@ const orange_slice = {
 
         //Determine a grade for the webpage
         var score;
-        var score_message;
-        if (total_danger_words == 0) {
-            score = 'A+';
-            score_message = grades.aa;
+        switch (true) {
+            case (total_danger_words == 0):
+                score = 'A+';
+                break;
+            case (total_danger_words <= 5):
+                score = 'A';
+                break;
+            case (total_danger_words <= 10):
+                score = 'B';
+                break;
+            case (total_danger_words <= 15):
+                score = 'C';
+                break;
+            case (total_danger_words <= 20):
+                score = 'D';
+                break;
+            default:
+                score = 'F'
+                break;
         }
-        else if (total_danger_words <= 5 ) {
-            score = 'A';
-            score_message = grades.a;
-        }
-        else if (total_danger_words <= 10) {
-            score = 'B';
-            score_message = grades.b;
-        }
-        else if (total_danger_words <= 15) {
-            score = 'C';
-            score_message = grades.c;
-        }
-        else if (total_danger_words <= 20) {
-            score = 'D';
-            score_message = grades.d;
-        }
-        else {
-            score = 'F'
-            score_message = grades.f;
-        }
+        var score_message = grades[score.toLowerCase()];
 
         // This will display the list of words on the page and
         // their counts
-        console.log(JSON.stringify(worddict));
+        //console.log(JSON.stringify(worddict));
 
         console.log("Total words on page: ", wordlist.length);
         console.log("Total unique words on page: ", Object.keys(worddict).length);
-        console.log("Danger words found: ", found_danger_words);
+        console.log("Total danger words found on page: ", total_danger_words);
+        console.log("GRADE: ", score);
 
         return {
           grade: score,
@@ -129,7 +126,7 @@ const orange_slice = {
               //console.log('statusCode:', response && response.statusCode);
               if (error) {
                   console.log('ERROR!', error);
-                  process.exit(1);
+                  return;
               }
               resolve(self.process_specimen(body));
           });
