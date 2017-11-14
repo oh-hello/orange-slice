@@ -243,15 +243,16 @@ html {
 .hero-bd{
     margin: 36px 0px 0px 0px;
     font-family: 'Quattrocento Sans', sans-serif;
-    line-height: 26px;
+    line-height: 30px;
+    font-size: 1.2rem;
 }
 
 .hero-hd_alt {
     text-align: left;
 }
 
-.hero-bd_alt{
-
+.hero-bd p{
+    padding-top: .5rem;
 }
 
 .hero-container {
@@ -379,7 +380,7 @@ html {
 
 .description-container{
     margin: auto 50px;
-    padding-top: 3rem; 
+    padding-top: 3rem;
     padding-bottom: 3rem;
 }
 
@@ -409,7 +410,6 @@ html {
 
     .hero-bd {
         margin: 15px 0 0 0;
-        font-size: .9rem;
         line-height: 22px;
     }
 
@@ -433,6 +433,17 @@ html {
         font-size: 2.5rem;
     }
 }
+
+@media (max-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero-bd {
+        font-size: .8rem;
+    }
+}
+
 @media (min-width: 1172px) {
   .wrapper {
     margin: 0 auto;
