@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Orange Slice",
+    "short_name": "Orange Slice",
+    "version": "0.1",
+    "icons": {
+        "128": "assets/128.png",
+        "48": "assets/48.png",
+        "16": "assets/16.png"
+    },  
+    "author": "Maddie Sandish",
+    "description": "Leverages the functionality from Orange Slice to check content on webpages",
+    "browser_action": {
+          "default_icon": {
+            "16": "assets/16.png",
+            "48": "assets/48.png",
+            "128": "assets/48.png"
+          },
+          "default_title": "Orange Slice YAY"
+        },
+    "background": {       
+        "persistent": false,
+        "scripts": [ "src/background.js" ]  
+    },
+    "content_scripts": [
+        {   
+            "matches": ["<all_urls>"],
+            "js": ["lib/jquery-3.2.1.min.js", "lib/dangerwords.js", "src/orange-slice-ext.js"],
+            "css": ["assets/orange-slice-ext.css"]
+        }   
+    ],  
+    "permissions": [
+        "storage"
+    ]   
+}
