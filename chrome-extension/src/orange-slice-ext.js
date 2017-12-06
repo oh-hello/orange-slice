@@ -1,0 +1,146 @@
+$(function () {
+    console.log('Orange slice initialized on this page.');
+    OrangeSliceExt.init();
+    var score = OrangeSliceExt.process_specimen($('body')[0].innerHTML);
+    var roe = chrome.runtime && chrome.runtime.sendMessage ? 'runtime' : 'extension';
+    chrome[roe].sendMessage({grade: score.grade});
+});
+
+var OrangeSliceExt = {
+    init: function() {
+      // Include both profanity and insults
+      var complete_dangerwords = [];
+      complete_dangerwords = complete_dangerwords.concat(dangerwords.profanity);
+      complete_dangerwords = complete_dangerwords.concat(dangerwords.insults);
+      this.set_danger_words(complete_dangerwords);
+    },
+    grades: {
+      "a+": "No keywords were found on this page.",
+      a: "Safe to proceed to this page!",
+      b: "Use caution at this page.",
+      c: "Things are heating up. Beware.",
+      d: "Not recommended for you.",
+      f: "You should avoid this page."
+    },
+    danger_words: [],
+    set_danger_words: function(words) {
+        this.danger_words = words;
+    },
+    // Get a list of all words from the specimen (string)
+    get_word_list: function(specimen) {
+        return specimen
+            .replace(/[.,?!;()"'-]/g, " ")
+            .replace(/\s+/g, " ")
+            .toLowerCase()
+            .split(" ");
+    },
+    // Get a dictionary of unique words and the number of
+    // occurrences from a word list (array)
+    get_word_dictionary: function(wordlist) {
+        var worddict = {};
+        wordlist.forEach(function (word) {
+            if (!(worddict.hasOwnProperty(word))) {
+                worddict[word] = 0;
+            }
+            worddict[word]++;
+        });
+
+        return worddict;
+    },
+    // The main logic to determine how 'unsafe' a page is
+    process_specimen: function(specimen_body) {
+        // options for stripping
+        const stripOptions = {
+            include_script: false,
+            include_style: false,
+            compact_whitespace: true,
+            include_attributes: { 'alt': true }
+        };
+
+        // Strip HTML (poor version)
+        body = specimen_body.replace(/(<([^>]+)>)/ig,"").toLowerCase();
+
+        // Get the list of words on the page, with counts of
+        // occurences
+        wordlist = this.get_word_list(body);
+        worddict = this.get_word_dictionary(wordlist);
+
+        // Track a list of the danger words that were found in the
+        // content, and how many times.
+        found_danger_words = [];
+        total_danger_words = 0;
+
+        for (i in this.danger_words) {
+            danger_word = this.danger_words[i].toLowerCase();
+
+            if (worddict.hasOwnProperty(danger_word)) {
+                found_danger_words[danger_word] = worddict[danger_word];
+                total_danger_words+= found_danger_words[danger_word];
+            }
+        }
+
+        //Determine a grade for the webpage
+        var score;
+        switch (true) {
+            case (total_danger_words == 0):
+                score = 'A+';
+                break;
+            case (total_danger_words <= 5):
+                score = 'A';
+                break;
+            case (total_danger_words <= 10):
+                score = 'B';
+                break;
+            case (total_danger_words <= 15):
+                score = 'C';
+                break;
+            case (total_danger_words <= 20):
+                score = 'D';
+                break;
+            default:
+                score = 'F'
+                break;
+        }
+        var score_message = this.grades[score.toLowerCase()];
+
+        // This will display the list of words on the page and
+        // their counts
+        //console.log(JSON.stringify(worddict));
+
+        console.log("Total words on page: ", wordlist.length);
+        console.log("Total unique words on page: ", Object.keys(worddict).length);
+        console.log("Total danger words found on page: ", total_danger_words);
+        console.log("GRADE: ", score);
+
+        return {
+          grade: score,
+          grade_message: score_message,
+          total_words: wordlist.length,
+          unique_words: Object.keys(worddict).length,
+          danger_words_found_count: Object.keys(found_danger_words).length,
+          found_danger_words: found_danger_words,
+          total_danger_words: total_danger_words
+        };
+    },
+    // Process a URL and get the orange slice score
+    process_url: function(url) {
+        var self = this;
+
+        return new Promise(resolve => {
+          console.log("Fetching URL '" + url + "'");
+          if (!url) {
+            console.log('ERROR! No URL specified');
+            resolve(self.process_specimen(''));
+            return;
+          }
+          request(url, function(error, response, body) {
+              //console.log('statusCode:', response && response.statusCode);
+              if (error) {
+                  console.log('ERROR!', error);
+                  return;
+              }
+              resolve(self.process_specimen(body));
+          });
+        });
+    }
+};
