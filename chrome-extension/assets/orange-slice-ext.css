@@ -1,0 +1,24 @@
+.popup {
+    font-size: 16px;
+    background-color: #f28500;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 3px 3px;
+    width: 200px;
+}
+
+h2 {
+    font-family: 'Ovo';
+}
+
+p {
+    font-family: 'Quattrocento Sans';
+}
+
+.number {
+    font-weight: bold;
+    color: #f28500;
+}
